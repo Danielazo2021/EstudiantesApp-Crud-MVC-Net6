@@ -25,21 +25,21 @@ namespace EstudiantesApp.Controllers
 
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> Index()
+        public async Task<ActionResult> Index()
         {
             var estudiantes = await _IEstudianteServices.ConsultaEstudiante();
             return View(estudiantes);
         }
 
         // GET: EstudiantesController/Details/5
-        public IActionResult Details(int id)
+        public ActionResult Details(int id)
         {
             return View();
         }
        
 
         // GET: EstudiantesController/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -48,13 +48,16 @@ namespace EstudiantesApp.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,FechaInscripcion")] Estudiante estudiante)
+        public ActionResult Create(IFormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-              
+                return RedirectToAction(nameof(Index));
             }
-            return View(estudiante);
+            catch
+            {
+                return View();
+            }
         }
 
        
