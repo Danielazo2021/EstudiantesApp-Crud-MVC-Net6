@@ -21,5 +21,8 @@ namespace EstudiantesApp.Transporte
 
         [Display(Name = "Fecha de inscripcion")]
         public string FechaInscripcion { get; set; }
+
+        [Display(Name = "Fecha de inscripcion")]
+        public DateTime FechaDate { get; internal set; }
     }
 }

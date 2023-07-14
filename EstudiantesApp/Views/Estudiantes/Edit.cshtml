@@ -1,0 +1,52 @@
+﻿@model EstudiantesApp.Transporte.EstudianteDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 class="text-info">Editar estudiante</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDate" class="control-label"></label>
+                <input asp-for="FechaDate" class="form-control" />
+                <span asp-validation-for="FechaDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="submit" value="Guardar" class="btn btn-primary form-control" />
+                    </div>
+                    <div class="col-sm-6">
+                        <a asp-action="Index" class="btn btn-success form-control">Volver a la lista</a>
+                    </div>
+
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -16,5 +16,20 @@ namespace EstudiantesApp.Servicios.Services
         {
             return await _IEstudianteRepository.ConsultaEstudiante();
         }
+
+        public async Task<EstudianteDto> ConsultarEstudiante(int id)
+        {
+            return await _IEstudianteRepository.ConsultarEstudiante(id);
+        }
+
+        public async Task<bool> CrearEstudiante(EstudianteDto estudiante)
+        {
+            return await _IEstudianteRepository.CrearEstudiante(estudiante); 
+        }
+
+        public async Task<bool> EditarEstudiante(EstudianteDto estudiante)
+        {
+            return await _IEstudianteRepository.EditarEstudiante(estudiante);
+        }
     }
 }
