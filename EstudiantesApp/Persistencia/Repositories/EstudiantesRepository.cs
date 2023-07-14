@@ -90,17 +90,32 @@ namespace EstudiantesApp.Persistencia.Repositories
                 await _context.SaveChangesAsync();
                 return true;
 
-
             }
             catch(Exception)
             {
                 return false;
             }
             
-            
-            
-            
-            
+        }
+
+        public async Task<bool> EliminarEstudiante(int id)
+        {
+            try
+            {
+                var estudiante = await(from t in _context.Estudiante
+                                       where t.Id == id
+                                       select t).FirstOrDefaultAsync();
+                if (estudiante == null) return false;
+
+                _context.Estudiante.Remove(estudiante);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

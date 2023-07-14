@@ -8,5 +8,6 @@ namespace EstudiantesApp.Dominio.IServices
         Task<EstudianteDto> ConsultarEstudiante(int id);
         Task<bool> CrearEstudiante(EstudianteDto estudiante);
         Task<bool> EditarEstudiante(EstudianteDto estudiante);
+        Task<bool> EliminarEstudiante(int id);
     }
 }
